@@ -1,3 +1,7 @@
+import os
+import sys
+sys.path.append(os.path.dirname(os.path.abspath(__file__)) +"/../")
+
 import importlib
 from logging.config import fileConfig
 
@@ -58,7 +62,7 @@ def run_migrations_offline():
     script output.
 
     """
-    url = config.get_main_option("sqlalchemy.url")
+    url = config.get_main_option("sqlalchemy.url").replace('%', '%%')
     context.configure(
         url=url, target_metadata=target_metadata, literal_binds=True
     )
