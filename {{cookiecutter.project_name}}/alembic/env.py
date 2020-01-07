@@ -16,7 +16,7 @@ from core.utils.init_db import get_dsn
 
 config = context.config
 config_app = init_config()
-dsn = get_dsn(config_app)
+dsn = get_dsn(config_app).replace('%', '%%')
 
 # Interpret the config file for Python logging.
 # This line sets up loggers basically.
@@ -62,7 +62,7 @@ def run_migrations_offline():
     script output.
 
     """
-    url = config.get_main_option("sqlalchemy.url").replace('%', '%%')
+    url = config.get_main_option("sqlalchemy.url")
     context.configure(
         url=url, target_metadata=target_metadata, literal_binds=True
     )
