@@ -13,3 +13,4 @@ SQLAlchemy-Utils==0.33.11
 ujson==1.35
 uvicorn==0.8.2
 uvloop==0.12.2
+python-dotenv==0.10.3
